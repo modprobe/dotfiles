@@ -1,0 +1,54 @@
+prompt_order = [
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_commit",
+    "git_state",
+    "git_status",
+    "hg_branch",
+    "docker_context",
+    "package",
+    "dotnet",
+    "elixir",
+    "elm",
+    "golang",
+    "haskell",
+    "java",
+    "julia",
+    "nodejs",
+    "php",
+    "python",
+    "ruby",
+    "rust",
+    "terraform",
+    "nix_shell",
+    "conda",
+    "memory_usage",
+    "aws",
+    "env_var",
+    "crystal",
+    "cmd_duration",
+    "custom.gcloud",
+    "kubernetes",
+    "jobs",
+    "battery",
+    "time",
+    "line_break",
+    "character",
+]
+
+[kubernetes]
+disabled = false
+
+[cmd_duration]
+disabled = true
+
+[custom.gcloud]
+command = """ echo "$(gcloud config get-value project 2>/dev/null) ($(gcloud config get-value compute/zone 2>/dev/null))" """
+when = """ true """
+prefix = "in "
+
+[ruby]
+disabled = true
+

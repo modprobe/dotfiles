@@ -1,0 +1,9 @@
+if [[ -s "${HOME}/.zprezto/init.zsh" ]]; then
+  source "${HOME}/.zprezto/init.zsh"
+fi
+
+source ~/.zshrc.d/completion.zsh
+source ~/.zshrc.d/common.zsh
+source ~/.zshrc.d/prompt.zsh
+source ~/.zshrc.d/mb.zsh
+source ~/.zshrc.d/git.zsh

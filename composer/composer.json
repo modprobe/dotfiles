@@ -1,0 +1,7 @@
+{
+    "require": {
+        "squizlabs/php_codesniffer": "*",
+        "psy/psysh": "^v0.10.4",
+        "balbuf/composer-git-merge-driver": "^1.1"
+    }
+}

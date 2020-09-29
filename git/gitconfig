@@ -1,0 +1,26 @@
+[user]
+	email = alex@timmermann.me
+	name = Alexander Timmermann
+	signingKey = 4C1D027F4F4DC0756A2D6FC39853A6DFF936E136
+
+[merge "composer_json"]
+    name = composer JSON file merge driver
+    driver = /Users/alex/.composer/vendor/bin/composer-git-merge-driver %O %A %B %L %P
+    recursive = binary
+
+[commit]
+	gpgSign = true
+
+[core]
+	excludesFile = /Users/alex/.gitignore
+	editor = vim
+
+[gpg]
+	program = gpg
+
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
