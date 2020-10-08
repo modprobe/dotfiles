@@ -10,6 +10,7 @@ brew "mas"
 mas "Magnet", id: 441258766
 
 brew "zsh"
+brew "zsh-completions"
 brew "lsd"
 brew "starship"
 cask "iterm2"

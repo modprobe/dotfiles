@@ -11,6 +11,10 @@ zstyle ':prezto:load' pmodule \
           'completion' \
           'git' \
           'fasd' \
-          'osx'
+          'gpg' \
+          'osx' \
+          'history-substring-search' \
+          'docker'
 
 zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:history-substring-search:color' found 'bg=green,fg=black,bold'

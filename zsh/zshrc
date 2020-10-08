@@ -1,4 +1,10 @@
-if [[ -s "${HOME}/.zprezto/init.zsh" ]]; then
+if type brew &>/dev/null && [[ -d "$(brew --prefix)/share/zsh-completions" ]]
+then
+  export FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
+if [[ -s "${HOME}/.zprezto/init.zsh" ]]
+then
   source "${HOME}/.zprezto/init.zsh"
 fi
 
