@@ -12,6 +12,7 @@
     ~/.Brewfile: brew/Brewfile
     ~/.config/starship.toml: starship/starship.toml
     ~/.composer/composer.json: composer/composer.json
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
 - create:
     - ~/.ssh/config.local
