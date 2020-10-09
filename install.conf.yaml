@@ -13,6 +13,7 @@
     ~/.config/starship.toml: starship/starship.toml
     ~/.composer/composer.json: composer/composer.json
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    ~/.config/iterm: iterm
 
 - create:
     - ~/.ssh/config.local
