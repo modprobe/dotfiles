@@ -1,54 +1,64 @@
-prompt_order = [
-    "username",
-    "hostname",
-    "directory",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "hg_branch",
-    "docker_context",
-    "package",
-    "dotnet",
-    "elixir",
-    "elm",
-    "golang",
-    "haskell",
-    "java",
-    "julia",
-    "nodejs",
-    "php",
-    "python",
-    "ruby",
-    "rust",
-    "terraform",
-    "nix_shell",
-    "conda",
-    "memory_usage",
-    "aws",
-    "env_var",
-    "crystal",
-    "cmd_duration",
-    "custom.gcloud",
-    "kubernetes",
-    "jobs",
-    "battery",
-    "time",
-    "line_break",
-    "character",
-]
+# format = "$all"
+format = """
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$kubernetes\
+$gcloud\
+$env_var\
+$crystal\
+$cmd_duration\
+$custom\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
 
 [kubernetes]
 disabled = false
+format="in [$symbol$context( \\($namespace\\))]($style) "
 
 [cmd_duration]
 disabled = true
 
-[custom.gcloud]
-command = """ echo "$(gcloud config get-value project 2>/dev/null) ($(gcloud config get-value compute/zone 2>/dev/null))" """
-when = """ true """
-prefix = "in "
-
 [ruby]
 disabled = true
 
+[gcloud]
+format = "[$symbol $project (\\($region\\))]($style) "
