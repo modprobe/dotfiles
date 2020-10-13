@@ -8,6 +8,7 @@ then
   source "${HOME}/.zprezto/init.zsh"
 fi
 
+source ~/.zshrc.d/path.zsh
 source ~/.zshrc.d/completion.zsh
 source ~/.zshrc.d/common.zsh
 source ~/.zshrc.d/prompt.zsh
