@@ -12,6 +12,6 @@ source ~/.zshrc.d/path.zsh
 source ~/.zshrc.d/completion.zsh
 source ~/.zshrc.d/common.zsh
 source ~/.zshrc.d/prompt.zsh
-source ~/.zshrc.d/mb.zsh
+source ~/.zshrc.d/insided.zsh
 source ~/.zshrc.d/git.zsh
 source ~/.zshrc.d/git-aliases.zsh
