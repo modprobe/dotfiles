@@ -19,3 +19,11 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w 
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' group no
 zstyle ':completion:*' group-name ''
+
+if whence -p aws_completer &>/dev/null
+then
+    autoload bashcompinit
+    bashcompinit
+
+    complete -C $(whence -p aws_completer) aws
+fi
