@@ -37,6 +37,7 @@ cask "font-office-code-pro"
 cask "iina"
 cask "minikube"
 cask "ngrok"
+cask "perimeter81"
 
 mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
