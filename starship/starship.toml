@@ -62,3 +62,6 @@ disabled = true
 
 [gcloud]
 format = "[$symbol $project (\\($region\\))]($style) "
+
+[aws]
+format = 'on [$symbol$profile (\($region\))]($style) '
