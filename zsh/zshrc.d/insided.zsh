@@ -111,3 +111,5 @@ function ec2 () {
 
   ssh -tA $AWS_PROFILE-$short_region -- ssh -A -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ip
 }
+
+alias tp="open -a TablePlus"

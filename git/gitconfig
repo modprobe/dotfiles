@@ -5,14 +5,14 @@
 
 [merge "composer_json"]
     name = composer JSON file merge driver
-    driver = /Users/alex/.composer/vendor/bin/composer-git-merge-driver %O %A %B %L %P
+    driver = ~/.composer/vendor/bin/composer-git-merge-driver %O %A %B %L %P
     recursive = binary
 
 [commit]
 	gpgSign = true
 
 [core]
-	excludesFile = /Users/alex/.gitignore
+	excludesFile = ~/.gitignore
 	editor = vim
 
 [gpg]

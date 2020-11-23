@@ -3,6 +3,7 @@
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.gitattributes: git/gitattributes
+    ~/.gitignore: git/gitignore
     ~/.ssh/config:
         path: ssh/config
         create: true
