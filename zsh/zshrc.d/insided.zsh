@@ -24,7 +24,7 @@ vssh() {
 alias vdir="cd ${VAGRANT_DIR}"
 alias cbdir="cd ${PROJECT_ROOT}/community-backend"
 
-alias ccache="vssh clear_cache"
+alias ccache="echo 'flush_all' | nc 127.0.0.1 11211; echo 'flushall' | nc 127.0.0.1 6379"
 
 if [[ -z "$AWS_PROFILE" ]]
 then
@@ -46,18 +46,18 @@ aws_profile () {
 alias ap="aws_profile"
 
 aws_region () {
-    prof=$(aws ec2 describe-regions | fzf --history=${HOME}/.cache/aws_profiles --reverse --height=10)
+    prof=$(aws ec2 describe-regions | fzf --history=${HOME}/.cache/aws_regions --reverse --height=10)
 
     if [[ -z "$prof" ]]
     then
-        unset AWS_PROFILE
+        unset AWS_REGION
         return 1
     fi
 
-    export AWS_PROFILE=$prof
+    export AWS_REGION=$prof
 }
 
-alias ap="aws_profile"
+alias ar="aws_region"
 
 shorten_region() {
   local long_region=${1:-AWS_REGION}
@@ -113,3 +113,11 @@ function ec2 () {
 }
 
 alias tp="open -a TablePlus"
+
+aws_mfa_secret() {
+  local item_name="AWS"
+  local otp_url=`op get item AWS | jq '.details.sections[] | select(.fields) | .fields[] | select(.n | contains("TOTP")) | .v'`
+  local secret=$(OTP_URL=${otp_url} python3 -c 'import os; from urllib.parse import urlparse; from urllib.parse import parse_qs; print(parse_qs(urlparse(os.environ.get("OTP_URL")).query)["secret"][0])')
+
+  echo $(oathtool -b --totp "${secret}")
+}

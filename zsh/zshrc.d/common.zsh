@@ -9,6 +9,7 @@ unsetopt correct
 alias ls="lsd"
 alias b="brew"
 alias k="kubectl"
+alias md="glow"
 
 alias bubo='brew update && brew outdated'
 alias bubc='brew upgrade && brew cleanup'
@@ -56,4 +57,12 @@ src () {
 [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 [[ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+--color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+'
+
 export SAM_CLI_TELEMETRY=0
+
+alias 1p='eval $(op signin alex)'
