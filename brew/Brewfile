@@ -2,12 +2,12 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "shivammathur/php"
 tap "charmbracelet/tap"
-tap "weaveworks/tap"
 
 # required for App Store installation
 brew "mas"
 
 mas "Magnet", id: 441258766
+mas "ToothFairy", id: 1191449274
 
 brew "zsh"
 brew "zsh-completions"
@@ -23,7 +23,7 @@ cask "telegram"
 cask "jetbrains-toolbox"
 cask "visual-studio-code"
 cask "spotify"
-cask "zoomus"
+cask "zoom"
 cask "cleanshot"
 cask "bartender"
 cask "istat-menus"
@@ -70,6 +70,7 @@ brew "mysql-client"
 brew "ncdu"
 brew "nginx"
 brew "nmap"
+brew "php@7.1"
 brew "php@7.4"
 brew "php@8.0"
 brew "pinentry"

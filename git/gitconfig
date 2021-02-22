@@ -1,7 +1,7 @@
 [user]
-	email = alex@timmermann.me
-	name = Alexander Timmermann
-	signingKey = 4C1D027F4F4DC0756A2D6FC39853A6DFF936E136
+    email = alex@timmermann.me
+    name = Alexander Timmermann
+    signingKey = B9AC15123D4ED36B63AD15EC099C6A421869B645
 
 [merge "composer_json"]
     name = composer JSON file merge driver
@@ -9,14 +9,14 @@
     recursive = binary
 
 [commit]
-	gpgSign = true
+    gpgSign = true
 
 [core]
-	excludesFile = ~/.gitignore
-	editor = vim
+    excludesFile = ~/.gitignore
+    editor = vim
 
 [gpg]
-	program = gpg
+    program = gpg
 
 [diff]
     tool = meld
@@ -24,3 +24,11 @@
     prompt = false
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
+
+[init]
+    defaultBranch = main
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+    stat = yes
