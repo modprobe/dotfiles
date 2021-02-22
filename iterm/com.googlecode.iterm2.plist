@@ -2337,6 +2337,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>PreventEscapeSequenceFromClearingHistory</key>
+	<false/>
 	<key>Selection Respects Soft Boundaries</key>
 	<true/>
 	<key>ShowBookmarkName</key>
