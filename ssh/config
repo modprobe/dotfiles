@@ -1,4 +1,5 @@
 Host *
     UseKeychain yes
+    IdentityAgent "~/.1password/agent.sock"
 
-Include config.local
+Include ~/.ssh/config.local

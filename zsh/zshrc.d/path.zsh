@@ -1,5 +1,4 @@
-export PATH=$HOME/.composer/vendor/bin:$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$HOME/go/bin:$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/openjdk/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH
 
-[[ -f $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-
+[[ -f $HOME/bin/google-cloud-sdk/path.zsh.inc ]] && source $HOME/bin/google-cloud-sdk/path.zsh.inc
 [[ -f "$HOME/.cargo/env" ]] && source $HOME/.cargo/env

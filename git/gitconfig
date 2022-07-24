@@ -1,15 +1,14 @@
 [user]
     email = alex@timmermann.me
     name = Alexander Timmermann
-    signingKey = B9AC15123D4ED36B63AD15EC099C6A421869B645
+
+[merge]
+    tool = phpstorm
 
 [merge "composer_json"]
     name = composer JSON file merge driver
     driver = ~/.composer/vendor/bin/composer-git-merge-driver %O %A %B %L %P
     recursive = binary
-
-[commit]
-    gpgSign = true
 
 [core]
     excludesFile = ~/.gitignore
@@ -19,11 +18,18 @@
     program = gpg
 
 [diff]
-    tool = meld
+    tool = phpstorm
+    colorMoved = default
+
 [difftool]
     prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+
+[difftool "phpstorm"]
+    cmd = phpstorm diff $LOCAL $REMOTE 
+
+[mergetool "phpstorm"]
+    cmd = phpstorm merge $LOCAL $REMOTE $BASE $MERGED
+    trustExitCode = true
 
 [init]
     defaultBranch = main
@@ -32,3 +38,19 @@
     autoStash = true
     missingCommitsCheck = warn
     stat = yes
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+    blame = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    syntax-theme = Dracula
+    line-numbers = true
+    side-by-side = true
+    hyperlinks = true

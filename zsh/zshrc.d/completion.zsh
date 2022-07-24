@@ -27,3 +27,56 @@ then
 
     complete -C $(whence -p aws_completer) aws
 fi
+
+[[ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+[[ -f $HOME/bin/google-cloud-sdk/completion.zsh.inc ]] && source $HOME/bin/google-cloud-sdk/completion.zsh.inc
+
+if type brew &>/dev/null && [[ -d "$(brew --prefix)/share/zsh-completions" ]]
+then
+  fpath=($(brew --prefix)/share/zsh-completions $(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+command -v minikube >/dev/null 2>&1 && source <(minikube completion zsh)
+command -v argocd >/dev/null 2>&1   && source <(argocd completion zsh)
+command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)  
+
+[[ -d ~/.awsume/zsh-autocomplete  ]] && fpath=(~/.awsume/zsh-autocomplete $fpath)
+
+compinit -u
+
+
+_gita_completions()
+{
+
+  local cur commands repos cmd
+  local COMP_CWORD COMP_WORDS
+  read -cn COMP_CWORD
+  read -Ac COMP_WORDS
+
+  cur=${COMP_WORDS[COMP_CWORD]}
+  cmd=${COMP_WORDS[2]}
+
+  commands=`gita -h | sed '2q;d' |sed 's/[{}.,]/ /g'`
+
+  repos=`gita ls`
+
+  if [ -z "$cmd" ]; then
+    reply=($(compgen -W "${commands}" ${cur}))
+  else
+    cmd_reply=($(compgen -W "${commands}" ${cmd}))
+    case $cmd in
+      add)
+        reply=(cmd_reply $(compgen -d ${cur}))
+        ;;
+      ll)
+        return
+        ;;
+      *)
+        reply=($cmd_reply $(compgen -W "${repos}" ${cur}))
+        ;;
+    esac
+  fi
+
+}
+
+compctl -K _gita_completions gita
