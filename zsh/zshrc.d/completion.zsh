@@ -42,6 +42,8 @@ command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)
 
 [[ -d ~/.awsume/zsh-autocomplete  ]] && fpath=(~/.awsume/zsh-autocomplete $fpath)
 
+command -v op >/dev/null 2>&1 && eval "$(op completion zsh)" && compdef _op op
+
 compinit -u
 
 

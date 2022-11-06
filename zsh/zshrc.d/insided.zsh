@@ -27,15 +27,15 @@ aws_profile () {
 alias ap="aws_profile"
 
 aws_region () {
-    prof=$(aws ec2 describe-regions | fzf --history=${HOME}/.cache/aws_regions --reverse --height=10)
+    region=$(aws ec2 describe-regions | fzf --history=${HOME}/.cache/aws_regions --reverse --height=10)
 
-    if [[ -z "$prof" ]]
+    if [[ -z "$region" ]]
     then
         unset AWS_REGION
         return 1
     fi
 
-    export AWS_REGION=$prof
+    export AWS_REGION=$region
 }
 
 alias ar="aws_region"
@@ -53,10 +53,10 @@ aws_console() {
     awsume -c
   elif [[ $# -eq 1 ]]
   then
-    awsume -cs $1
+    awsume -cs $1 --region eu-west-1
   elif [[ $# -eq 2 ]]
   then 
-    awsume $1 -cs $2
+    awsume $1 -cs $2 --region eu-west-1
   elif [[ $# -eq 3 ]]
   then
     awsume $1 -cs $2 --region "$(long_region $3)"
@@ -166,3 +166,20 @@ es_tunnel() {
   ssh -L 8443:${endpoint}:443 $IAM_USERNAME@$env.ssh.insided.com -N &
   open https://localhost:8443/_plugin/kibana
 }
+
+ticket_instance() {
+  jenkins_url="$(op read -n op://inSided/Jenkins/website)/job/ticket-instance-community-backend-container/buildWithParameters"
+  jenkins_user=$(op read -n op://inSided/Jenkins/username)
+  jenkins_password=$(op read -n op://inSided/Jenkins/password)
+
+  current_branch=$(git symbolic-ref --short -q HEAD)
+
+  BRANCH=$(gum input --prompt "> Branch " --prompt.foreground=212 --value "$current_branch") || exit 1
+  TICKET=$(gum input --prompt "> Ticket " --prompt.foreground=212 --value "$current_branch") || exit 1
+
+  gum confirm "Create ticket instance for branch $BRANCH and ticket $TICKET?" && (
+    gum spin -s points --title "Triggering job..." -- curl -s -f -XPOST --data ticket="${TICKET}" --data branch="${BRANCH}" --user "${jenkins_user}:${jenkins_password}" "${jenkins_url}" || (gum style --foreground 9 --bold "Failed." && exit 1)
+  ) && gum style --bold --foreground 10 "Instance creation triggered."
+}
+
+alias ti=ticket_instance

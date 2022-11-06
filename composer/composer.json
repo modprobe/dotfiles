@@ -3,6 +3,7 @@
         "squizlabs/php_codesniffer": "*",
         "psy/psysh": "^v0.10.4",
         "balbuf/composer-git-merge-driver": "^1.1",
-        "adhocore/phint": "^0.6.1"
+        "adhocore/phint": "^0.6.1",
+        "rector/rector": "^0.14.2"
     }
 }

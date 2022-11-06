@@ -15,6 +15,7 @@ brew "lsd"
 brew "starship"
 cask "iterm2"
 brew "zplug"
+brew "gum"
 
 cask "google-chrome-dev", args: {force: true}
 cask "1password"
