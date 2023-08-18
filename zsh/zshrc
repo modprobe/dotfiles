@@ -1,7 +1,5 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# Fig pre block. Keep at the top of this file.
-[[ -s "${HOME}/.fig/shell/zshrc.pre.zsh" ]] && source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 if [[ -s "${HOME}/.zprezto/init.zsh" ]]
 then
@@ -17,9 +15,6 @@ source ~/.zshrc.d/insided.zsh
 source ~/.zshrc.d/git.zsh
 source ~/.zshrc.d/completion.zsh
 source ~/.zshrc.d/zplug.zsh
-
-# Fig post block. Keep at the bottom of this file.
-[[ -s "${HOME}/.fig/shell/zshrc.post.zsh" ]] && source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

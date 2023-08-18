@@ -2,3 +2,4 @@ export PATH=$HOME/.jenv/bin:$HOME/.composer/vendor/bin:$HOME/go/bin:$HOME/bin:/o
 
 [[ -f $HOME/bin/google-cloud-sdk/path.zsh.inc ]] && source $HOME/bin/google-cloud-sdk/path.zsh.inc
 [[ -f "$HOME/.cargo/env" ]] && source $HOME/.cargo/env
+[[ -f "$HOME/.op/plugins.sh" ]] && source $HOME/.op/plugins.sh

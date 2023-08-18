@@ -12,6 +12,8 @@ zplug 'wfxr/forgit'
 export NVM_LAZY_LOAD=true
 zplug "lukechilds/zsh-nvm"
 
+zplug "mattberther/zsh-pyenv"
+
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then

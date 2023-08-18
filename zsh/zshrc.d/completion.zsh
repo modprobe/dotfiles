@@ -44,9 +44,6 @@ command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)
 
 command -v op >/dev/null 2>&1 && eval "$(op completion zsh)" && compdef _op op
 
-compinit -u
-
-
 _gita_completions()
 {
 
@@ -82,3 +79,7 @@ _gita_completions()
 }
 
 compctl -K _gita_completions gita
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+compinit -u

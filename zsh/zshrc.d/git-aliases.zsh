@@ -41,6 +41,10 @@ function git_main_branch() {
   fi
 }
 
+function git_checkout_with_stash() {
+  git stash && git checkout $@ && git stash pop
+}
+
 #
 # Aliases
 # (sorted alphabetically)
@@ -85,9 +89,10 @@ alias gcl='git clone --recurse-submodules'
 alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dffx'
 alias gcm='git checkout $(git_main_branch)'
-alias gcd='git checkout develop'
+# alias gcd='git checkout develop'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
+alias gcos=git_checkout_with_stash
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
@@ -180,6 +185,7 @@ alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch
 
 # alias gl='git pull'
 alias gl=gupa
+alias glm='gupa origin $(git_main_branch)'
 
 # alias glg='git log --stat'
 alias glg='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
