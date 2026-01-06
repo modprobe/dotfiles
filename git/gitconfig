@@ -1,6 +1,7 @@
 [user]
-    email = alex@timmermann.me
+	email = alex@timmermann.me
     name = Alexander Timmermann
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIAXaFNVYS0GXBigWw1z6dihaAkM42CdRxouLDvBw1OG
 
 [merge]
     tool = phpstorm
@@ -16,6 +17,7 @@
 
 [gpg]
     program = gpg
+	format = ssh
 
 [diff]
     tool = phpstorm
@@ -50,7 +52,19 @@
     diffFilter = delta --color-only --features=interactive
 
 [delta]
-    syntax-theme = Dracula
     line-numbers = true
     side-by-side = true
     hyperlinks = true
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+
+[alias]
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
+[remote "origin"]
+    fetch = +refs/merge-requests/*:refs/remotes/origin/merge-requests/*
+
+[rerere]
+	enabled = true

@@ -1,17 +1,23 @@
-- clean: ['~']
+- clean: ["~"]
+- defaults:
+    link:
+      create: true
+
+- install-brew: true
+- brewfile:
+    - brew/Brewfile
 
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.gitattributes: git/gitattributes
     ~/.gitignore: git/gitignore
     ~/.ssh/config:
-        path: ssh/config
-        create: true
+      path: ssh/config
+      create: true
     ~/.tmux.conf: tmux/tmux.conf
     ~/.zshrc: zsh/zshrc
     ~/.zshrc.d: zsh/zshrc.d
     ~/.zpreztorc: zsh/zpreztorc
-    ~/.Brewfile: brew/Brewfile
     ~/.config/starship.toml: starship/starship.toml
     ~/.composer/composer.json: composer/composer.json
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
@@ -20,5 +26,4 @@
 
 - shell:
     - touch ~/.ssh/config.local
-    - composer global install
-
+    - rustup default stable

@@ -15,3 +15,4 @@ src () {
 has -q zoxide && eval "$(zoxide init zsh)"
 
 [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+has -q direnv && eval "$(direnv hook zsh)"

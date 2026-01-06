@@ -11,7 +11,8 @@ alias bubc='brew upgrade && brew cleanup'
 alias bubu='bubo && bubc'
 
 alias 1p='eval $(op signin alex)'
-alias ns="kubens | fzf --no-preview --ansi --height=25% --layout=reverse | xargs kubens"
+# alias ns="kubens | fzf --no-preview --ansi --height=25% --layout=reverse | xargs kubens"
+alias ns='FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=25% --layout=reverse" kubens'
 
 command -v bat >/dev/null 2>&1 && alias cat='bat --paging=never'
 command -v kubecolor >/dev/null 2>&1 && alias kubectl="kubecolor"

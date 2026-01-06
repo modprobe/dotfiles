@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# autoload -U +X compinit && compinit -i
+# autoload -U +X bashcompinit && bashcompinit -i
 
 if [[ -s "${HOME}/.zprezto/init.zsh" ]]
 then
@@ -11,10 +11,23 @@ source ~/.zshrc.d/path.zsh
 source ~/.zshrc.d/common.zsh
 source ~/.zshrc.d/aliases.zsh
 source ~/.zshrc.d/prompt.zsh
-source ~/.zshrc.d/insided.zsh
+# source ~/.zshrc.d/insided.zsh
 source ~/.zshrc.d/git.zsh
 source ~/.zshrc.d/completion.zsh
 source ~/.zshrc.d/zplug.zsh
+source ~/.zshrc.d/iterm.zsh
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/alex/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Antigravity
+export PATH="/Users/alex/.antigravity/antigravity/bin:$PATH"

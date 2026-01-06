@@ -30,6 +30,7 @@ fi
 
 [[ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 [[ -f $HOME/bin/google-cloud-sdk/completion.zsh.inc ]] && source $HOME/bin/google-cloud-sdk/completion.zsh.inc
+[[ -f "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" ]] && source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
 if type brew &>/dev/null && [[ -d "$(brew --prefix)/share/zsh-completions" ]]
 then
@@ -39,6 +40,8 @@ fi
 command -v minikube >/dev/null 2>&1 && source <(minikube completion zsh)
 command -v argocd >/dev/null 2>&1   && source <(argocd completion zsh)
 command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)  
+command -v scw >/dev/null 2>&1      && source <(scw autocomplete script)
+command -v zoxide >/dev/null 2>&1   && source <(zoxide init zsh)
 
 [[ -d ~/.awsume/zsh-autocomplete  ]] && fpath=(~/.awsume/zsh-autocomplete $fpath)
 
@@ -82,4 +85,4 @@ compctl -K _gita_completions gita
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-compinit -u
+compinit -i -d "${ZSH_CACHE_DIR:-$HOME/.cache}/zcomp-$HOST"
