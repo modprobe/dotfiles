@@ -9,9 +9,6 @@ export FORGIT_NO_ALIASES=1
 export FORGIT_LOG_FZF_OPTS='--reverse'
 zplug 'wfxr/forgit'
 
-export NVM_LAZY_LOAD=true
-zplug "lukechilds/zsh-nvm"
-
 zplug "mattberther/zsh-pyenv"
 
 if ! zplug check --verbose; then

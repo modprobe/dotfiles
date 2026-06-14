@@ -16,3 +16,5 @@ has -q zoxide && eval "$(zoxide init zsh)"
 
 [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 has -q direnv && eval "$(direnv hook zsh)"
+has -q fnm && eval "$(fnm env --use-on-cd --shell zsh)"
+has -q mise && eval "$(mise activate zsh)"

@@ -7,3 +7,4 @@ export PATH=$HOME/.jenv/bin:$HOME/.composer/vendor/bin:$HOME/go/bin:$HOME/bin:/o
 [[ -n "${ANDROID_HOME}" ]] && export PATH=$PATH:$ANDROID_HOME/emulator:$PATH/platform-tools
 
 [[ -n "${ZPLUG_HOME}" ]] && export PATH=$PATH:${ZPLUG_HOME}/repos/wfxr/forgit/bin
+[[ -f "$HOME/.vite-plus/env" ]] && source $HOME/.vite-plus/env

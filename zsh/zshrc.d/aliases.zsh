@@ -1,4 +1,5 @@
 source ~/.zshrc.d/git-aliases.zsh
+alias helium='open -a Helium --args --remote-debugging-port=9222'
 
 alias ls="lsd"
 alias b="brew"

@@ -42,6 +42,7 @@ command -v argocd >/dev/null 2>&1   && source <(argocd completion zsh)
 command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)  
 command -v scw >/dev/null 2>&1      && source <(scw autocomplete script)
 command -v zoxide >/dev/null 2>&1   && source <(zoxide init zsh)
+command -v scw >/dev/null 2>&1      && source <(scw autocomplete script)
 
 [[ -d ~/.awsume/zsh-autocomplete  ]] && fpath=(~/.awsume/zsh-autocomplete $fpath)
 
