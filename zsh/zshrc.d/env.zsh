@@ -8,7 +8,14 @@ export FZF_DEFAULT_OPTS='--color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:
 
 export SAM_CLI_TELEMETRY=0
 
-defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && export BAT_THEME="Dracula Pro" || export BAT_THEME="Monokai Extended Light"
+defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && export BAT_THEME="Dracula Pro" || export BAT_THEME="Alucard"
 export HAS_ALLOW_UNSAFE="y"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
+
+has -q fnm && eval "$(fnm env --use-on-cd)"
+has -q awsume && alias awsume="source awsume"
+
+[[ -s "$(brew --prefix)/etc/profile.d/z.sh" ]] && source $(brew --prefix)/etc/profile.d/z.sh
+
+export NODE_EXTRA_CA_CERTS="/usr/local/share/ca-certificates/eon-ca.crt"

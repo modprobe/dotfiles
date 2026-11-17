@@ -1,4 +1,6 @@
-# autoload -U +X compinit && compinit -i
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/a81089/.zsh/completions:"* ]]; then export FPATH="/Users/a81089/.zsh/completions:$FPATH"; fi
+autoload -U +X compinit && compinit -i
 # autoload -U +X bashcompinit && bashcompinit -i
 
 if [[ -s "${HOME}/.zprezto/init.zsh" ]]
@@ -6,12 +8,11 @@ then
   source "${HOME}/.zprezto/init.zsh"
 fi
 
-source ~/.zshrc.d/env.zsh
 source ~/.zshrc.d/path.zsh
+source ~/.zshrc.d/env.zsh
 source ~/.zshrc.d/common.zsh
 source ~/.zshrc.d/aliases.zsh
 source ~/.zshrc.d/prompt.zsh
-# source ~/.zshrc.d/insided.zsh
 source ~/.zshrc.d/git.zsh
 source ~/.zshrc.d/completion.zsh
 source ~/.zshrc.d/zplug.zsh

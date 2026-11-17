@@ -22,3 +22,28 @@ command -v awsume >/dev/null 2>&1 && alias awsume="source awsume"
 function phpswitch() {
 	phpswitch.sh $@ -s
 }
+
+if [[ -z "$AWS_PROFILE" ]]
+then
+  export AWS_PROFILE=messaging-dev
+fi
+
+aws_profile () {
+    prof=$(aws configure list-profiles | fzf --history=${HOME}/.cache/aws_profiles --reverse --height=10)
+
+    if [[ -z "$prof" ]]
+    then
+        unset AWS_PROFILE
+        return 1
+    fi
+
+    export AWS_PROFILE=$prof
+
+    aws sts get-caller-identity --profile=$prof &>/dev/null
+    IS_LOGGED_OUT="$?"
+    if [[ "$IS_LOGGED_OUT" -eq "255" ]]; then
+        aws sso login --profile=$prof
+    fi
+}
+
+alias ap=aws_profile

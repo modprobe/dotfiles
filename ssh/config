@@ -1,3 +1,5 @@
+Include /Users/a81089/.colima/ssh_config
+
 Host *
     UseKeychain yes
     IdentityAgent "~/.config/1Password/agent.sock"

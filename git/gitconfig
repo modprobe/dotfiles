@@ -1,7 +1,7 @@
 [user]
-	email = alex@timmermann.me
+    email = alexander.timmermann@essent.nl
     name = Alexander Timmermann
-	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCZmm2RrKC+fB8xwVfnZOv8wOxdWac1mhFAUT19r8Zi4J+/PN8jAoxaY/V/2yqtIprCPxrKjNN4D42OIXrrqKiPXzsc398PlL/Ew0pF2b+YaEsMl+KpBUPMJkUQnMvNT7jmLblD/DTo1At0L/ksLS5RplegLAfha5a9JVkZHKDR3hPvC9jJCQpv57Wf9h5TeV/BQ5o7/oO/+q4TqzlgUROlJn1SHsIfnmw4hjILnWaAZgnE7x17QTfergb33G95KUVkd2inH8Wa5MuHNogLWBHQll40KnaFBIz+EUQHDf0ccn2FqzfAnAJ/ZNjRIZV2VLdsTwZWqMQGPZx5h5N8e4DuSS2BvTUKutLOhFsr/PIpuybaGCPcjhy6Yk9bRyT0IgRIZGrbrBl2oTezboGAQzwmTMDeP7XOMDBe/7iBMzp9PMbh8353CXqgc2Z4XThqYDjPI4NBAjYJc8uIPuPwMceleT3UUoMozJqcQU3MCDJWDle+d66fJU2m7pHZDb5Rnf0=
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEAa1O8mFg7Ea+2IRGwczQJ6Aggtf6m9dPQLdZgszZYH
 
 [merge]
     tool = phpstorm
@@ -14,6 +14,7 @@
 [core]
     excludesFile = ~/.gitignore
     editor = vim
+	pager = hunk pager
 
 [gpg]
     program = gpg
@@ -68,3 +69,5 @@
 
 [rerere]
 	enabled = true
+[gpg "x509"]
+	program = smimesign

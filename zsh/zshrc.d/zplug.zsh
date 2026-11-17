@@ -8,7 +8,6 @@ fi
 export FORGIT_NO_ALIASES=1
 export FORGIT_LOG_FZF_OPTS='--reverse'
 zplug 'wfxr/forgit'
-
 zplug "mattberther/zsh-pyenv"
 
 if ! zplug check --verbose; then

@@ -7,7 +7,7 @@ setopt always_to_end
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache
 
-zstyle ':completion:*' completer _complete _match 
+zstyle ':completion:*' completer _complete _match
 zstyle ':completion:*:match:*' original only
 
 zstyle ':completion:*:*:kill:*' menu yes select
@@ -39,7 +39,7 @@ fi
 
 command -v minikube >/dev/null 2>&1 && source <(minikube completion zsh)
 command -v argocd >/dev/null 2>&1   && source <(argocd completion zsh)
-command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)  
+command -v kubectl >/dev/null 2>&1  && source <(kubectl completion zsh)
 command -v scw >/dev/null 2>&1      && source <(scw autocomplete script)
 command -v zoxide >/dev/null 2>&1   && source <(zoxide init zsh)
 command -v scw >/dev/null 2>&1      && source <(scw autocomplete script)
@@ -85,5 +85,6 @@ _gita_completions()
 compctl -K _gita_completions gita
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+if [[ ":$FPATH:" != *":${HOME}/.zsh/completions:"* ]]; then export FPATH="${HOME}/.zsh/completions:$FPATH"; fi
 
 compinit -i -d "${ZSH_CACHE_DIR:-$HOME/.cache}/zcomp-$HOST"
